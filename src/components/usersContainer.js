@@ -26,29 +26,45 @@ function UsersContainer() {
 
     };
     fetchData()
-
+   
   }, [])
 
 
 
 
+  
 
   const clear = (id) => {
+   
     let newArr = users.map(el => {
-      if (el.id == id) {
-       firebase.firestore().collection('users').doc(el.id).delete()
-
-        return { ...el, flag: false }
+    if (el.id === id) {
+      console.log('hi')
+    
+      firebase.firestore().collection('users').doc(el.id).delete()
+ 
+        return {...el, flag: false }
       }
-      else return el
+      return el;
     })
-    setUsers(newArr)
+        setUsers(newArr)
+   
+        
   }
 
- 
 
+  const clearthat = () => {
 
-
+    let newUsers=  users.map(el => {
+       if (el.flag == false) {
+         firebase.firestore().collection('users').doc(el.id).delete()
+      
+         return null;}
+     if (el.flag==true)
+     return el
+        
+       } )
+    
+      }
 
 
   let addpost = e => {
@@ -82,7 +98,7 @@ function UsersContainer() {
 
   return (
     <div>
-      <Users addPost={addPost} addpost={addpost} onUpdate={onUpdate} clear={clear} users={users}  setUsers={setUsers} toggle={toggle}  setToggle={setToggle} toggle2={toggle2} setToggle2={setToggle2} name={name} setName={setName} />
+      <Users clearthat={clearthat} addPost={addPost} addpost={addpost} onUpdate={onUpdate} clear={clear} users={users}  setUsers={setUsers} toggle={toggle}  setToggle={setToggle} toggle2={toggle2} setToggle2={setToggle2} name={name} setName={setName} />
     </div>
   )
 }

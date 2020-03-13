@@ -26,13 +26,15 @@ const Users = (props) => {
               </div>
               <div className='button'>
 
-                <Button onClick={() => {props.clear(el.id)}} variant="outline-danger">x</Button>
+                <Button onClick={() =>{ setTimeout(() => {
+                  props.clearthat()
+                }, 500);   props.clear(el.id)}} variant="outline-danger">x</Button>
               </div>
             </div>)}
         </Transition >
       </div>
       : null}
-
+      
       {props.onUpdate(el.id, el.name, el.flag)}
     </div>
   )
