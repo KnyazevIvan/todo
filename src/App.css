@@ -55,6 +55,19 @@ body {
   font-size: 1rem;
   }
 }
+@media screen and (max-width: 400px) {
+  .alert{
+    position: absolute;
+
+  width: 95%;
+  top: 15px;
+  left: 3%;
+  font-size: 1rem;
+  }
+  
+}
+
+
 .close {
 
   position: absolute;
@@ -63,6 +76,17 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 400px) {
+  .close {
+
+    position: absolute;
+  
+    top: 23px;
+  left: 90%;
+    cursor: pointer;
+  }
+  
+}
 .site-layout-content {
   background: #fff;
   padding: 24px;

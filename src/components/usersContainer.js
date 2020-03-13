@@ -16,27 +16,27 @@ function UsersContainer() {
     firebase.firestore().collection('users').doc(id).set({ ...users[id], name, id, flag })
   }
 
-  useEffect(() => {
 
-    const unsubscribe = firebase.firestore().collection('users').onSnapshot((snapshot) => {
-      const newUsers = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
+  React.useEffect(() => {
+    const fetchData = async () => {
 
-      }))
+      const db = firebase.firestore();
+      const data = await db.collection('users').get();
+      setUsers(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
 
-      setUsers(newUsers)
-
-    })
-    return () => unsubscribe()
-
+    };
+    fetchData()
 
   }, [])
+
+
+
+
 
   const clear = (id) => {
     let newArr = users.map(el => {
       if (el.id == id) {
-        setTimeout(() => { firebase.firestore().collection('users').doc(el.id).delete() }, 400);
+       firebase.firestore().collection('users').doc(el.id).delete()
 
         return { ...el, flag: false }
       }
@@ -44,6 +44,11 @@ function UsersContainer() {
     })
     setUsers(newArr)
   }
+
+ 
+
+
+
 
 
   let addpost = e => {
