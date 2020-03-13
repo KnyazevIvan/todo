@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  
+}
+
+body {
+
+}
+
+.container {
+  margin-top: 100px;
+ 
+}
+.notes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: relative;
+
+ margin-top: 10px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 2px;
+  border-radius: 4px;
+}
+
+
+.span {
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+
+}
+.button {
+  margin-right: 10px;
+  background-color: white;
+}
+.alert {
+  position: absolute;
+
+  width: 900px;
+  top: 15px;
+  left: 18%;
+
+}
+.close {
+
+  position: absolute;
+  top: 23px;
+  left: 115%;
+  cursor: pointer;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+  [data-theme="dark"] .site-layout-content {
+    background: #141414;
+  }
+  [data-theme="dark"] .logo {
+    background: rgba(255,255,255,0.3);
+  }
+ .mb-3 {
+  border-radius: 10px;
+
+  }
